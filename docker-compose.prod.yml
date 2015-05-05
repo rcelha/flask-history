@@ -1,0 +1,6 @@
+app:
+    extends:
+        file: docker-compose.common.yml
+        service: app
+    external_links:
+        - flaskdesk_redis_1:flaskdesk_redis

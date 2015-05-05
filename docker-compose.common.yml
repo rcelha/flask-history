@@ -1,0 +1,4 @@
+app:
+    image: rcelha/flask_history_application
+    # ports:
+    #    - "5000:5000"

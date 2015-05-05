@@ -1,0 +1,19 @@
+app:
+    command: python main.py runserver
+    extends:
+        file: docker-compose.common.yml
+        service: app
+    ports:
+        - "5000"
+    volumes:
+        - flask_history:/code/flask_history
+
+consumer:
+    command: python main.py consume 
+    extends:
+        file: docker-compose.common.yml
+        service: app
+    volumes:
+        - flask_history:/code/flask_history
+    external_links:
+        - flaskdesk_redis_1:flaskdesk_redis
