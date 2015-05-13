@@ -4,9 +4,11 @@ app:
         file: docker-compose.common.yml
         service: app
     ports:
-        - "5000"
+        - "5001:5000"
     volumes:
         - flask_history:/code/flask_history
+    links:
+        - mongo
 
 consumer:
     command: python main.py consume 
@@ -17,3 +19,7 @@ consumer:
         - flask_history:/code/flask_history
     external_links:
         - flaskdesk_redis_1:flaskdesk_redis
+    links:
+        - mongo
+mongo:
+    image: mongo:3.0

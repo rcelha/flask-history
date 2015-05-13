@@ -3,3 +3,4 @@ ipdb
 redis
 click
 pymongo
+dictdiffer
