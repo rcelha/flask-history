@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
+def all_history():
     logging.debug("Hello, Terminal")
 
     client = MongoClient('mongodb://mongo:27017/')
